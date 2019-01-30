@@ -1,3 +1,6 @@
+import os
+
+
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegisterForm, LoginForm
 app = Flask(__name__)
@@ -52,4 +55,5 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, port=port)
