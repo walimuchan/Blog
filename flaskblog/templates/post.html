@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="media">
+        <img class="rounded-circle"src="{{url_for('static', filename='profile_pic/' + posts.author.image_file)}}">
+            <div class="media-body">
+                <small class="text-muted">{{posts.date_posted.strftime('%Y-%m-%d')}}</small>
+                <h2>{{posts.title}}</h2>
+                <p>By <a href="">{{posts.author.username}}</a></p>
+                <p>{{posts.content}}</p>
+                <hr>
+                {%if posts.author == current_user %}
+                  <div>
+                      <a class="btn btn-secondary btn-sm" href="{{url_for('update_post',post_id=posts.id) }}">Update</a>
+                      <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                  </div>
+                {% endif %}
+            </div>
+    </div>
+    <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete post?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <form action="{{url_for('delete_post',post_id=posts.id )}}" method="POST">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            
+{% endblock content %}
+    

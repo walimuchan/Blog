@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="col">
+        <form action="" method="POST">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="d-sm-flex">{{legend}}</legend>
+                <!--TITLE FIELD-->
+            <div class="form-group">
+                {{form.title.label(class="form-control-label")}}
+
+                {% if form.title.errors %}
+                    {{form.title(class="form-control-plaintext is-invalid")}}
+                    <div class="invalid-feeback">
+                        {% for error in form.title.errors %}
+                                <span>{{error}}</span>
+                        {% endfor%}
+                    </div>
+                {% else %}
+                    {{form.title(class="form-control-plaintext")}}
+                {% endif%}    
+            </div> 
+            <!--CONTENT FIELD-->  
+            <div class="form-group">
+            {{form.content.label(class="form-control-label")}}
+                
+            {% if form.content.errors %}
+                {{form.content(class="form-control-plaintext is-invalid")}}
+                <div class="invalid-feeback">
+                    {% for error in form.content.errors %}
+                        <span>{{error}}</span>
+                    {% endfor%}
+                </div>
+            {% else %}
+                {{form.content(class= "form-control-plaintext")}}
+            {% endif%}    
+            </div>    
+            </fieldset>
+            <div class="form-group">
+                {{form.submit(class="btn btn-success")}}
+            </div>
+        </form>
+    </div>
+                        
+{% endblock content %}
+    
+
+
+
