@@ -59,6 +59,7 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
+#IMAGE ROUTE
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
@@ -73,7 +74,7 @@ def save_picture(form_picture):
     return picture_fn
 
 
-#ACCOUNT ROUTE
+#USER ACCOUNT ROUTE
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
@@ -96,7 +97,7 @@ def account():
     return render_template('account.html', title='Account', image_file=image_file, form=form)
     
     
-#POSTS ROUTE
+#NEW POSTS ROUTE
 @app.route("/posts/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -107,7 +108,7 @@ def new_post():
         db.session.commit()
         flash('your post has been created!', 'success')
         return redirect(url_for('home'))
-    return render_template('create_post.html', title='New Post', form=form, legend='New Post')
+    return render_template('create_post.html', title='Create New Post', form=form, legend='Create New Post')
 
 #POSTS ROUTE
 @app.route("/posts/<int:post_id>")
@@ -147,4 +148,4 @@ def delete_post(post_id):
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('home'))
     
-   
+

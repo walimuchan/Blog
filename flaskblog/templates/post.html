@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
+<!-- here posts can be viewed, updated and deleted by current user-->
     <div class="media">
         <img class="rounded-circle"src="{{url_for('static', filename='profile_pic/' + posts.author.image_file)}}">
             <div class="media-body">

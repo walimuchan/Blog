@@ -14,12 +14,14 @@ class RegisterForm(FlaskForm):
     submit = SubmitField('Signup')
 
 
-#CUSTOM VALIDATION
+#CUSTOM VALIDATION FOR REGISTER FORM
+#Show error in case user tries to input available username/email
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError('Username not available,choose another')
 
+#Email validation:raise error if users tries to register existing email
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user:
@@ -33,26 +35,28 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
     save = BooleanField('remember me?')
 
-#UPDATE ACCOUNT
+#UPDATE USER ACCOUNT
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(),Length(min=1, max=15) ])
     email = StringField('email', validators=[InputRequired(),Email()])
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
     submit = SubmitField('Update')
 
-#CUSTOM VALIDATION
+#CUSTOM VALIDATION FOR UPDATING USER ACCOUNT
+#only the owner of the account can update it
     def validate_username(self, username):
         if username.data != current_user.username:
             user = User.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('Username not available,choose another')
-
+#email can only be updated by user currrrently loggd in
     def validate_email(self, email):
          if email.data != current_user.email:
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('email not available')
 
+#NEW POSTS GO HERE
 class PostForm(FlaskForm):
     title = StringField('Title', validators=[InputRequired()])
     content = TextAreaField('Content', validators=[InputRequired()])

@@ -1,12 +1,15 @@
+<!--USER ACCOUNT CODE-->
 {% extends "layout.html" %}
 {% block content %}
+<!--this section displays user account details-->
     <div class="media">
-        <img class="rounded-circle" src="{{ image_file}}">
+        <img class="rounded-circle mt-1 ml-1" src="{{ image_file}}">
         <div class="media-body">
-        <h2 class="mt-0">{{ current_user.username}}</h2>
-        <p>{{ current_user.email}}</p>
+        <h2 class="mt-2">{{ current_user.username}}</h2>
+        <p class="ml-2">{{ current_user.email}}</p>
         </div>
         <div class="col">
+            <!--below is a form for users to update their account info-->
                 <form method="POST" action="" enctype="multipart/form-data">
                     {{form.hidden_tag()}}
                     <fieldset class="form-group">
