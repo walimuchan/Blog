@@ -11,7 +11,7 @@ P{
 
 body{
     padding: 0;
-    background-color:rgb(243, 56, 103);
+    background-color: lightblue;
     
    
 }
@@ -26,6 +26,7 @@ header{
     font-weight: bold;
     color:rgb(20, 20, 20);
     text-shadow: 3px 3px 3px rgb(53, 78, 224);
+    background-color: aliceblue;
    
     
    
