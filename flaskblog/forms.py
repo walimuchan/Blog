@@ -8,7 +8,7 @@ from flaskblog.models import User
 
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(),Length(min=1, max=15) ])
-    email = StringField('email', validators=[InputRequired(),Email()])
+    email = StringField('Email', validators=[InputRequired(),Email()])
     password = PasswordField('Password', validators=[InputRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[InputRequired(), EqualTo('password')])
     submit = SubmitField('Signup')
@@ -30,7 +30,7 @@ class RegisterForm(FlaskForm):
 
 #LOGIN FORM
 class LoginForm(FlaskForm):
-    email = StringField('email or username', validators=[InputRequired(),Email()])
+    email = StringField('Email', validators=[InputRequired(),Email()])
     password = PasswordField('Password', validators=[InputRequired()])
     submit = SubmitField('Login')
     save = BooleanField('remember me?')
@@ -38,7 +38,7 @@ class LoginForm(FlaskForm):
 #UPDATE USER ACCOUNT
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(),Length(min=1, max=15) ])
-    email = StringField('email', validators=[InputRequired(),Email()])
+    email = StringField('Email', validators=[InputRequired(),Email()])
     picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
     submit = SubmitField('Update')
 

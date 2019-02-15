@@ -2,12 +2,16 @@
     text-decoration: none;
     list-style-type: none;
     box-sizing: border-box;
+  }
 
+P{
+  font-family:garamond;
+  font-weight:500;
 }
+
 body{
     padding: 0;
-    
-   
+    background-color:rgb(243, 56, 103);
     
    
 }
@@ -15,18 +19,22 @@ body{
 /*HEADER*/
 header{
     padding: 20px;
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
-    font-family:trajan;
+    font-family:rosewood;
     text-transform: uppercase;
     font-weight: bold;
-    color:rgb(56, 91, 206);
-    text-shadow: 3px 3px 4px rgb(12, 11, 11);
-    font-style: italic;
-
-
-       
+    color:rgb(20, 20, 20);
+    text-shadow: 3px 3px 3px rgb(53, 78, 224);
+   
     
+   
+
+
+}
+.header_img{
+ 
+
 }
 
 
@@ -35,7 +43,7 @@ nav{
     margin: 0 auto;
     overflow: hidden;
     text-align: center;
-    background-color:rgb(147, 242, 245);
+    background-color:rgb(13, 193, 199);
    
     
     
@@ -83,7 +91,7 @@ nav > ul >li >a:hover{
 
 /*LAYOUT*/
 .container{
-  padding: 60px;
+  
   margin-top: 5px;
     
    
@@ -94,12 +102,13 @@ nav > ul >li >a:hover{
 #about_title{
     text-align: center;
     font-family: garamond;
+    color: black;
 }
 #about{
     padding:5px 5px;
     margin:0 auto;
     font-family: caramant;
-    background-color: white;
+    text-align: center;
 }
 
 
@@ -113,32 +122,69 @@ nav > ul >li >a:hover{
 }
 
 
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
 
 
 
 
-  .content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-    margin-bottom: 20px;
-  }
-  
-  .article-title {
-    color: #1a1919;
-    text-transform: capitalize
-  }
-  
-  
-  .article-content {
-    white-space: pre-line;
-  }
   
  
   
   /* Footer */
-.footer {
+
   /*background-color:rgb(39, 35, 35);
   color: white;
   text-align: center;
@@ -151,7 +197,7 @@ nav > ul >li >a:hover{
  
  
   
-  }
+  
 
 /* Clear floats after the columns */
 .row:after {
@@ -160,8 +206,4 @@ nav > ul >li >a:hover{
     clear: both;
   }
 
-  .column-33 {
-    float: left;
-    width: 33.33333%;
-    padding: 20px;
-  }
+  
