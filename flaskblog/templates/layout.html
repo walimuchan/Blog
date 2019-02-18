@@ -42,9 +42,9 @@
     </nav>
   
   <!--MAIN_LAYOUTPAGE-->
-  <div class="container">
+  <main class="container">
     <div class="row"> 
-      <div class="left_col ml-1">
+      <div class="col-md-8">
               {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages%}
                   {% for category, message in messages %}
@@ -57,9 +57,11 @@
               
           
           {% block content %}{% endblock %}
-        </div>
+      </div>
     </div>
-  </div> 
+  </main>
+    
+  
    
 
 
